@@ -1,4 +1,4 @@
-package fr.diginamic.jpaTP1;
+package fr.diginamic.jpaTP01;
 
 import org.hibernate.annotations.GenericGenerator;
 

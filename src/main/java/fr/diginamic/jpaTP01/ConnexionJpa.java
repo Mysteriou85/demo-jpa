@@ -1,4 +1,4 @@
-package fr.diginamic.jpaTP1;
+package fr.diginamic.jpaTP01;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
