@@ -1,28 +1,29 @@
-package fr.diginamic;
+package fr.diginamic.jpaTP1;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "elements_chimiques")
 public class ElementChimique {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq")
+    @GenericGenerator(name = "seq", strategy = "increment")
     private long elId;
 
-    @Column(name = "elNom", length = 20, nullable = false)
+    @Column(name = "elNom", length = 50)
     private String elNom;
 
-    @Column(name = "elSymbole", length = 20, nullable = false)
+    @Column(name = "elSymbole", length = 3)
     private String elSymbole;
 
     @Column(name = "elNumAtomique")
     private int elNumAtomique;
 
     @Column(name = "elMasseAtomique")
-    private double elMasseAtomique;
+    private float elMasseAtomique;
 
     // Constructor
     public ElementChimique() {
@@ -46,7 +47,7 @@ public class ElementChimique {
         return elNumAtomique;
     }
 
-    public double getElMasseAtomique() {
+    public float getElMasseAtomique() {
         return elMasseAtomique;
     }
 
@@ -67,7 +68,21 @@ public class ElementChimique {
         this.elNumAtomique = elNumAtomique;
     }
 
-    public void setElMasseAtomique(double elMasseAtomique) {
+    public void setElMasseAtomique(float elMasseAtomique) {
         this.elMasseAtomique = elMasseAtomique;
+    }
+
+    // Methode
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ElementChimique [");
+        sb.append("elId = ").append(elId);
+        sb.append(", elNom = '").append(elNom).append('\'');
+        sb.append(", elSymbole = '").append(elSymbole).append('\'');
+        sb.append(", elNumAtomique = ").append(elNumAtomique);
+        sb.append(", elMasseAtomique = ").append(elMasseAtomique);
+        sb.append('}');
+        return sb.toString();
     }
 }
